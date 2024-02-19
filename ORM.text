@@ -1,0 +1,85 @@
+class Mobiles(models.Model):
+   name=models.CharField(max_length=200,unique=True)
+    price=models.PositiveIntegerField()
+    brand=models.CharField(max_length=200)
+    specs=models.CharField(max_length=200)
+    display=models.CharField(max_length=200,null=True) 
+
+    =====ORM query=====
+    from mobile.models import Mobiles
+    modelname.objects.create(fieldname=value,....)
+
+    eg;
+    Mobiles.objects.create(name="iphone",price=100000,brand="apple",specs="12gb ram",display="led")
+
+
+    ====>python manage.py shell<====
+  
+  django-admin startproject appname
+  python manage.py startapp subappname
+
+  python manage.py makemigrations
+
+  python manage.py migrate
+
+
+
+  =====orm query for fetching all records====
+
+  >Models.objects.all()
+  >qs=Mobiles.objects.all()
+  ========================
+
+
+  === orm query for srlecting a specific objects====
+  qs=ModelName.objects.get(id=2)
+
+  =====orm query for filtering object=====
+
+  qs=Mobiles.objects.filter(name="samsang")
+
+
+  ====orm query field lookup====
+  <=lte
+
+  >=gte
+
+  < __lt
+
+  >__gt
+
+  ====orm query to exclude object===
+  Mobiles.objects.exclude(brand="samasang")
+
+
+  ===orm query for delete a object====
+
+
+  Mobiles.objects.filter(id=3).delete()
+
+  ===orm query for updating a object =====
+  Mobiles.objects.filter(id=1).update(price=40050,specs="12 gb")
+
+  ====orm query tosort by price=====
+
+
+  Mobiles.objects.all().order_by("price")#acending order
+
+  Mobiles.objects.all().order_by("-price")#acending order
+
+  ====orm quert to prict all category====
+
+  Mobiles.objects.all().values_list("category",flat=true)
+
+
+
+
+
+
+
+
+
+
+
+
+

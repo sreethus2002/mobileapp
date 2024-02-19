@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+
+    
+    
+ 
+<div class="container">
+    <h3>AVAILABLE MOBILES</h3>
+    
+    <table class="table table-dark table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Brand</th>
+                <th>Specs</th>
+                <th>Display</th>
+                <th>Action</th>
+            </tr>
+            {% for mob in data %}
+            <tr>
+                <td>{{mob.name}}</td>
+                <td>{{mob.price}}</td>
+                <td>{{mob.brand}}</td>
+                <td>{{mob.specs}}</td>
+                <td>{{mob.display}}</td>
+                <td>
+                    <a href="{% url 'mobile-details' mob.id %}" class="btn btn-outline-info">view</a>
+                    <a href="{% url 'mobile-change'  mob.id%}" class="btn btn-outline-secondary">change</a>
+                    
+                </td>
+                
+            
+                
+            </tr>
+            {%endfor%}
+    </table>
+
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}
